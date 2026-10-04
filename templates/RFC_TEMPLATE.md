@@ -1,58 +1,58 @@
 # RFC [NUMBER]: [TITLE]
 
-> **Status:** [Draft / Proposed Standard / Internet Standard / Informational]  
-> **Working Group / Authors:** [e.g., IETF HTTPbis / J. Reschke, etc.]  
-> **Source Link:** [https://www.rfc-editor.org/rfc/rfcXXXX](https://www.rfc-editor.org/rfc/rfcXXXX)  
-> **Date Published:** [YYYY-MM]  
-> **Tags:** `#networking` `#protocols` `#ietf`
+- **Status:** [Draft / Proposed Standard / Internet Standard / Informational]
+- **Working Group / Author:** [e.g., IETF HTTPbis / J. Reschke]
+- **Source Link:** https://www.rfc-editor.org/rfc/rfc[NUMBER].html
+- **Published:** [YYYY-MM]
+- **Tags:** `[tag1]`, `[tag2]`
 
 ---
 
-## ⚡ 30-Second Summary (The Elevator Pitch)
-What problem does this RFC solve, why was the previous way broken, and what is the fundamental breakthrough or specification?
+## What Problem Does This Solve?
+Brief summary of why this RFC was created and what wasn't working in the previous specification.
 
 ---
 
-## 🎯 Background & The "Why"
-- **Historical Context:** What did we use before (e.g., HTTP/1.1 or HTTP/2, TLS 1.2, IPv4)?
-- **Core Bottlenecks:** Head-of-line blocking, latency, security gaps, round-trips (RTT).
-- **Design Goals:** What were the non-negotiables for this specification?
+## Background & Prior Limitations
+- What protocol or mechanism was in place before this?
+- What were the primary bottlenecks or pain points? (e.g. latency, head-of-line blocking, security limitations)
 
 ---
 
-## 🛠️ Key Technical Concepts & Mechanisms
-Explain the protocol mechanics with precision:
-- **Packet / Frame Structure:**
-- **Handshake / State Machine:**
-- **Error Handling & Edge Cases:**
+## Technical Breakdown
+
+### Core Protocol Mechanics
+Explain how the protocol works step-by-step:
+- Packet/frame format
+- State machine / handshake sequence
+- Handling edge cases and connection state
 
 ```mermaid
 sequenceDiagram
     autonumber
-    Client->>Server: Initial Handshake
+    Client->>Server: Initial Message
     Server-->>Client: Handshake Response
-    Client->>Server: Encrypted Payload
+    Client->>Server: Application Data
 ```
 
 ---
 
-## 🔬 Practical Lab & Verification
-How did you test, capture, or verify this protocol in practice?
-- **Tools Used:** `tcpdump`, `wireshark`, `curl --http3`, custom python socket script.
-- **Commands & Observations:**
+## Local Lab & Testing
+How to test or observe this protocol in action:
+- Tools: `curl`, `tcpdump`, `wireshark`, or custom python script.
+- Sample command:
 ```bash
-# Example verification command
-curl -I --http3 https://cloudflare.com
+# Test command
 ```
 
 ---
 
-## 💡 Practical Takeaways for Engineers
-- Where does this apply in modern systems design?
-- Common pitfalls or misconceptions.
+## Personal Takeaways & Gotchas
+- Key lessons or real-world tradeoffs discovered while reading.
+- Where this matters in production systems today.
 
 ---
 
-## 🔗 References & Further Reading
-- [Official RFC Link](https://www.rfc-editor.org/)
-- [Related RFCs](https://...)
+## References
+- [Official RFC](https://www.rfc-editor.org/rfc/rfc[NUMBER].html)
+- [Errata / Related RFCs](https://...)

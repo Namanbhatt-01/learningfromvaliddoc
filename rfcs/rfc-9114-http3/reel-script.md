@@ -1,46 +1,39 @@
-# 🎬 Reel Script: Why HTTP/3 Ditched TCP for UDP (RFC 9114)
+# Reel Script: Why HTTP/3 Ditched TCP for UDP
 
-> **Format:** 9:16 Vertical Video (Instagram Reels, YouTube Shorts, LinkedIn)  
-> **Duration:** 55 seconds  
-> **Topic:** RFC 9114 (HTTP/3) & QUIC Protocol  
-> **Status:** Ready to Record 🎥
+- **Length:** ~50 seconds
+- **Format:** 9:16 Vertical Video (Reels / Shorts / TikTok)
+- **Topic:** RFC 9114 / QUIC
+- **Recording status:** Ready to shoot
 
 ---
 
-## ⏱️ Video Breakdown
+## Script & Visuals
 
-| Timestamp | Dialogue / Voiceover (VO) | Visual Cue (B-Roll & Screen) | Text Overlay |
+| Time | What I say (Voiceover) | What is on screen | On-screen text |
 |---|---|---|---|
-| **00:00 - 00:04** | *"Why did internet engineers decide to dump TCP and build HTTP/3 on top of UDP? Isn't UDP unreliable?"* | Pointing at camera with skeptical expression; split screen showing `TCP vs UDP` animation | **TCP IS OBSOLETE?! 🤯** |
-| **00:04 - 00:14** | *"Here is the dirty secret: in HTTP/2, if you download 20 images at once and ONE single packet drops over Wi-Fi..."* | Animated graphic showing 20 cars on a highway with one broken car stopping the entire road | **HEAD-OF-LINE BLOCKING 🛑** |
-| **00:14 - 00:24** | *"...TCP forces every single other stream to freeze until that missing packet is resent. That's Head-of-Line Blocking."* | Terminal screen showing latency spike or Wireshark packet stalling | **ALL STREAMS FREEZE ⏳** |
-| **00:24 - 00:36** | *"Enter IETF RFC 9114: HTTP/3. It swaps TCP for QUIC over UDP. Each stream is completely independent."* | Split screen showing packets bypassing the stalled stream smoothly | **RFC 9114: QUIC ⚡** |
-| **00:36 - 00:46** | *"Plus, QUIC merges TLS 1.3 encryption directly into the handshake, meaning 0-RTT connection times and seamless Wi-Fi to 5G switching!"* | Side-by-side handshake latency graph: 2 RTT vs 0-1 RTT | **0-RTT HANDSHAKE 🚀** |
-| **00:46 - 00:55** | *"I wrote down the complete breakdown, packet flow diagrams, and a python inspection lab in my open-source GitHub repo. Link in bio!"* | Quick screen recording scrolling through the GitHub notes & Mermaid diagram | **NOTES IN GITHUB (LINK IN BIO) 🔗** |
+| **0:00 - 0:04** | "Did you know that HTTP/3 doesn't use TCP at all? It actually runs completely over UDP." | Looking at camera, holding up phone or sitting at desk. | Why HTTP/3 runs on UDP 👇 |
+| **0:04 - 0:13** | "To understand why, look at HTTP/2. It let browsers download multiple files over one single TCP connection. That seemed great..." | Screen recording: browser network tab downloading 30 images at once. | HTTP/2 multiplexing |
+| **0:13 - 0:24** | "...until you hit packet loss. Because TCP guarantees strict order, if even one packet drops over flaky mobile data, everything freezes while waiting for that single retransmit." | Simple diagram or terminal showing dropped packet stalling the rest of the stream. | Head-of-line blocking 🛑 |
+| **0:24 - 0:35** | "That's why RFC 9114 created HTTP/3. It uses QUIC on top of UDP. Multiplexing moves directly into the transport layer, so streams are completely independent." | Visual comparison: TCP single lane vs QUIC multi-lane highway. | RFC 9114 + QUIC ⚡ |
+| **0:35 - 0:45** | "One dropped packet only delays that specific file. The rest of the page keeps loading. Plus, the handshake is down to a single round trip." | Terminal showing `curl --http3` or `Alt-Svc` header response. | 1-RTT Handshake |
+| **0:45 - 0:52** | "I wrote down my complete reading notes and a quick python test script in my GitHub repo—link is in my bio." | Quick screencast of the GitHub repo and README. | Notes in bio 🔗 |
 
 ---
 
-## 📱 Social Copy & Post Metadata
+## Social Caption
 
-### Title / Hook
-Why HTTP/3 ditched TCP for UDP! 🌐 (IETF RFC 9114 explained)
+Why HTTP/3 ditched TCP for UDP 👇
 
-### Caption
-```text
-Did you know that HTTP/3 doesn't use TCP at all? 🤯
+When HTTP/2 came out, multiplexing felt like magic. But it created a hidden bottleneck: TCP head-of-line blocking. 
 
-In HTTP/2, multiplexing was supposed to fix slow page loads. But because TCP requires strict in-order delivery, losing even 1% of packets on cellular networks stalls ALL multiplexed streams! 
+If you download 20 files on mobile and packet #3 drops, TCP pauses delivery of all subsequent packets until packet #3 gets resent.
 
-This is known as Transport-Layer Head-of-Line Blocking.
+RFC 9114 fixes this with HTTP/3:
+- Runs on QUIC (over UDP)
+- Streams are completely independent (no connection freeze on packet loss)
+- Faster connection setup (0–1 RTT with built-in TLS 1.3)
+- Survives Wi-Fi to mobile data handoffs seamlessly
 
-Under RFC 9114, HTTP/3 solves this by running QUIC over UDP:
-✅ Independent streams (no global stalling)
-✅ 0-RTT connection resumption with integrated TLS 1.3
-✅ Seamless connection migration when switching from Wi-Fi to mobile data
+I've documented my full notes from reading the RFC plus a python test script on GitHub. Link in my bio.
 
-I’m doing a full series breaking down official RFCs, CVEs, and research papers with code labs on my GitHub.
-
-Check the repository link in my bio to read the full study notes and run the test lab! 💻🚀
-
-#networking #http3 #computerscience #softwareengineering #webdev #infosec #techreels #coding #systemdesign
-```
+#softwareengineering #networking #webdevelopment #http3 #computerscience #programming

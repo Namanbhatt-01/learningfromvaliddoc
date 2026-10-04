@@ -1,54 +1,48 @@
 # [YEAR] - [PAPER / STANDARD TITLE]
 
-> **Authors / Committee:** [Authors or Standards Committee, e.g. IEEE 802.11, ISO/IEC 27001]  
-> **Published At / Venue:** [e.g., OSDI, SOSP, USENIX, arXiv, IEEE Transactions]  
-> **Source Link / DOI:** [URL / DOI]  
-> **Tags:** `#research-paper` `#distributed-systems` `#ai` `#standards`
+- **Authors / Committee:** [Authors or working group]
+- **Published In / Venue:** [e.g., OSDI, USENIX ATC, SOSP, arXiv, IEEE]
+- **Source Link:** [PDF or DOI link]
+- **Tags:** `[tag1]`, `[tag2]`
 
 ---
 
-## ⚡ 30-Second Summary (The Elevator Pitch)
-What is the core breakthrough or standard introduced? What real-world bottleneck did it conquer?
+## The Core Idea
+What is the primary breakthrough, algorithm, or finding presented in this paper?
 
 ---
 
-## 🎯 The Problem & State of the Art Prior
-- What existed before this paper/standard?
-- What fundamental theoretical or practical limitations hit a wall?
+## Prior Work & What Was Missing
+- What systems or algorithms existed before this work?
+- What theoretical or practical bottleneck prevented scaling?
 
 ---
 
-## 🧠 Core Innovations & Architecture
-Break down the paper's key algorithm, system design, or mathematical framework:
-- **Key Concepts:**
-- **System Diagram / Flowchart:**
+## Architecture & Algorithm Details
+Breakdown of the key mechanism:
+- Major system components:
+- Data structures or algorithmic guarantees:
+- Tradeoffs made (e.g. latency vs consistency, CPU vs memory):
 
 ```mermaid
 graph TD
-    A[Input] --> B[Core Innovation]
-    B --> C[Output / Breakthrough]
+    A[Input / Problem] --> B[Core Algorithm / Technique]
+    B --> C[Result / Benchmark]
 ```
 
 ---
 
-## 📊 Benchmark & Empirical Results
-- What did the experiments prove?
-- Scalability, throughput, latency, or accuracy numbers.
-- Any trade-offs or sacrifices (e.g., consistency vs. latency)?
+## Empirical Results & Benchmarks
+- Key metrics reported by the authors (throughput, latency, accuracy, etc.):
+- Test environment and workload characteristics:
 
 ---
 
-## 🔬 Practical Lab / Implementation Notes
-- Did you implement a toy version, benchmark an open-source implementation, or run the provided artifact?
-- Code repository or demo notes.
+## Production Relevance
+- Where is this technique used in production systems today? (e.g., Kafka, Raft in etcd/Kubernetes, Transformer in LLMs)
 
 ---
 
-## 💡 Industry Impact & Modern Relevance
-- Where is this used in production today? (e.g., Google Spanner, Kafka, LLMs, Kubernetes).
-
----
-
-## 🔗 References
-- [Original Paper PDF](https://...)
-- [Author Presentation / Slides](https://...)
+## References
+- [Original Paper](https://...)
+- [Talk / Conference Presentation](https://...)

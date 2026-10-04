@@ -1,42 +1,35 @@
-# 🎬 Reel / Short Script: [TOPIC NAME]
+# Reel Script: [TOPIC NAME]
 
-> **Format:** 9:16 Vertical Video (Instagram Reels / YouTube Shorts / TikTok / LinkedIn Video)  
-> **Target Duration:** 45 - 60 seconds  
-> **Status:** [Draft / Review / Recorded / Edited / Published]  
-> **Published Links:** [Instagram / YouTube / LinkedIn / Twitter]
+- **Length:** ~50–60 seconds
+- **Format:** 9:16 Vertical Video (Instagram Reels, YouTube Shorts, LinkedIn, TikTok)
+- **Status:** [Draft / Ready to Record / Recorded / Published]
+- **Published Links:** [Add links once live]
 
 ---
 
-## ⏱️ Video Breakdown
+## Shot List & Script
 
-| Timestamp | Spoken Dialogue / Voiceover (VO) | Visual On-Screen Cue (B-Roll / Code / Screen Recording) | Text Overlay (Hook / Punchy) |
+| Time | What I say (Voiceover) | What's on screen (Visuals) | On-screen text / Overlay |
 |---|---|---|---|
-| **00:00 - 00:03** | *"Ever wondered why [intriguing problem or common misconception]?"* | Face to camera + sudden zoom or fast motion graphic / terminal error | **STOP DOING THIS 🛑** / **DID YOU KNOW?** |
-| **00:03 - 00:15** | *"Most engineers think [common belief], but according to [RFC / CVE / Paper], that's completely wrong."* | Cut to highlighted line in the original PDF / standard RFC document | **THE HIDDEN TRUTH 📄** |
-| **00:15 - 00:35** | *"Here is what actually happens under the hood: [explain the mechanism in 2 clear sentences]. Notice how..."* | Screen recording: terminal execution, Wireshark packet trace, or animated diagram | **UNDER THE HOOD ⚙️** |
-| **00:35 - 00:48** | *"And this is why [key consequence: latency drop, security breach, massive throughput]."* | Split screen: Before vs. After OR Attacker vs. Victim log | **THE RESULT 🚀** |
-| **00:48 - 00:55** | *"I built a full reproduction lab and breakdown notes. Everything is open-source in my GitHub repo—link in bio."* | Quick flash of this GitHub repository with the README notes | **FULL NOTES ON GITHUB 🔗** |
-| **00:55 - 01:00** | *"Follow for daily deep dives into actual computer science standards and papers!"* | Face to camera with CTA arrow pointing to Follow button | **FOLLOW FOR MORE 💡** |
+| **0:00 - 0:03** | "[Hook: Ask a question about a common misunderstanding or surprising detail from the document]" | Looking directly at camera, natural posture. | [Short punchy phrase (max 4 words)] |
+| **0:03 - 0:15** | "[Explain what people commonly assume, and why the real-world behavior or older system breaks]" | Screen recording: show the failure, packet drops, or code issue. | [Highlight the problem] |
+| **0:15 - 0:35** | "[Explain what the RFC/CVE/Paper actually does to solve or exploit this]" | Terminal recording, Wireshark capture, or clean diagram. | [The mechanism / spec name] |
+| **0:35 - 0:48** | "[Explain the practical result: why this matters for latency, security, or architecture]" | Benchmark graph or side-by-side comparison. | [The payoff / metric] |
+| **0:48 - 0:55** | "I've posted my full reading notes, diagrams, and reproduction code on GitHub. Link is in my bio." | Quick screencast of the repo's README notes. | [Notes in bio 🔗] |
 
 ---
 
-## 📝 Caption & Social Copy
+## Social Caption
 
-### Caption
-```text
-Did you know this about [TOPIC]? 👇
+[One sentence hook summarizing the takeaway]
 
-Most people don't read the actual standards or papers, but when you dig into [RFC XXXX / CVE XXXX / Paper Title], you realize [1-sentence key revelation].
+[2-3 sentences explaining the core mechanics in plain English]
 
-Here’s the TL;DR:
-1️⃣ [Point 1]
-2️⃣ [Point 2]
-3️⃣ [Point 3]
+Key points:
+- [Point 1]
+- [Point 2]
+- [Point 3]
 
-I've documented the full technical notes, diagrams, and reproduction code on my GitHub repository (Link in bio!).
+Full study notes and lab code are on my GitHub (link in bio).
 
-Drop a comment with which standard or paper I should break down next! 🚀
-```
-
-### Hashtags
-`#computerscience #softwareengineering #infosec #networking #webdevelopment #developer #tech #coding #systemdesign #devcommunity`
+#[tag1] #[tag2] #softwareengineering #programming #computerscience

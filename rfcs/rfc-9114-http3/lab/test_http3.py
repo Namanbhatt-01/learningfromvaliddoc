@@ -1,54 +1,44 @@
 #!/usr/bin/env python3
 """
-HTTP/3 & QUIC Inspector Probe
-Used for testing and verifying RFC 9114 support in the wild.
+Simple script to check if popular domains advertise HTTP/3 (h3)
+via the Alt-Svc response header.
 """
 
 import sys
 import urllib.request
-import urllib.parse
-from http.client import HTTPResponse
 
-TARGETS = [
+DOMAINS = [
     "https://cloudflare.com",
     "https://google.com",
     "https://facebook.com",
     "https://github.com",
 ]
 
-def check_h3_support(url: str):
-    print(f"\n🔍 Probing: {url}")
+def check_domain(url: str):
+    print(f"\nChecking {url}...")
     req = urllib.request.Request(
         url,
-        headers={"User-Agent": "Mozilla/5.0 (HTTP3-RFC9114-Lab-Probe/1.0)"}
+        headers={"User-Agent": "Mozilla/5.0 (HTTP3-Check/1.0)"}
     )
     try:
-        with urllib.request.urlopen(req, timeout=5) as response:
-            alt_svc = response.headers.get("Alt-Svc")
-            server = response.headers.get("Server", "Unknown")
-            print(f"  ├─ Status: {response.status} {response.reason}")
-            print(f"  ├─ Server: {server}")
+        with urllib.request.urlopen(req, timeout=5) as res:
+            alt_svc = res.headers.get("Alt-Svc")
+            server = res.headers.get("Server", "Unknown")
+            print(f"  Status: {res.status} ({server})")
             if alt_svc and "h3" in alt_svc:
-                print(f"  └─ 🚀 HTTP/3 (QUIC) ADVERTISED: ✅")
-                print(f"     Alt-Svc header: {alt_svc[:60]}...")
+                print(f"  -> HTTP/3 supported via Alt-Svc: {alt_svc[:50]}...")
             else:
-                print(f"  └─ ⚠️  No explicit HTTP/3 (h3) Alt-Svc advertisement found.")
-    except Exception as e:
-        print(f"  └─ ❌ Error querying {url}: {e}")
+                print(f"  -> No HTTP/3 (h3) Alt-Svc header found.")
+    except Exception as err:
+        print(f"  -> Error: {err}")
 
 def main():
-    print("=" * 60)
-    print("⚡ RFC 9114 (HTTP/3) Edge Advertisement Probe")
-    print("=" * 60)
-    targets = sys.argv[1:] if len(sys.argv) > 1 else TARGETS
+    targets = sys.argv[1:] if len(sys.argv) > 1 else DOMAINS
     for target in targets:
         if not target.startswith("http"):
             target = f"https://{target}"
-        check_h3_support(target)
-    print("\n" + "=" * 60)
-    print("💡 Note: Browsers use the 'Alt-Svc' header on HTTP/2 responses")
-    print("   to learn that an HTTP/3 endpoint is available via UDP/443.")
-    print("=" * 60)
+        check_domain(target)
+    print("\nNote: Browsers read the Alt-Svc header on port 443 TCP to discover UDP HTTP/3 endpoints.")
 
 if __name__ == "__main__":
     main()

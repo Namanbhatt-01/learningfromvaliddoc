@@ -80,26 +80,25 @@ def scaffold_study(study_type: str, item_id: str, title: str):
     with open(script_file, "w", encoding="utf-8") as f:
         f.write(reel_content)
 
-    print("\n✅ Successfully created new study workspace!")
-    print(f"📁 Directory: {target_dir.relative_to(REPO_ROOT)}")
-    print(f"📝 Study Notes: {readme_file.relative_to(REPO_ROOT)}")
-    print(f"🎬 Reel Script: {script_file.relative_to(REPO_ROOT)}")
-    print(f"🔬 Lab PoC Folder: {target_dir.relative_to(REPO_ROOT)}/lab")
-    print(f"🖼️  Assets Folder: {target_dir.relative_to(REPO_ROOT)}/assets\n")
+    print("\nCreated new study workspace:")
+    print(f"  Directory: {target_dir.relative_to(REPO_ROOT)}")
+    print(f"  Notes:     {readme_file.relative_to(REPO_ROOT)}")
+    print(f"  Script:    {script_file.relative_to(REPO_ROOT)}")
+    print(f"  Lab:       {target_dir.relative_to(REPO_ROOT)}/lab\n")
 
 def main():
-    parser = argparse.ArgumentParser(description="Scaffold a new technical document study workspace.")
-    parser.add_argument("--type", choices=list(TYPE_MAP.keys()), help="Type of document (rfc, cve, paper, standard, article)")
-    parser.add_argument("--id", help="Identifier (e.g. 9114 for RFC, 2024-3094 for CVE, 2017 for Paper year)")
+    parser = argparse.ArgumentParser(description="Scaffold a study directory and templates.")
+    parser.add_argument("--type", choices=list(TYPE_MAP.keys()), help="Type: rfc, cve, paper, standard, article")
+    parser.add_argument("--id", help="Identifier (e.g. 9114, 2024-3094, 2017)")
     parser.add_argument("--title", help="Title of the topic/document")
 
     args = parser.parse_args()
 
     if not args.type:
-        print("--- 📚 New Technical Study Generator ---")
-        print("Available types: " + ", ".join(TYPE_MAP.keys()))
-        doc_type = input("Choose document type: ").strip().lower()
-        doc_id = input("Identifier (e.g. 9114, 2024-3094, 2017, or blank): ").strip()
+        print("Scaffold a new study directory:")
+        print("Types: " + ", ".join(TYPE_MAP.keys()))
+        doc_type = input("Choose type: ").strip().lower()
+        doc_id = input("Identifier (e.g. 9114, 2024-3094, or leave blank): ").strip()
         doc_title = input("Document Title: ").strip()
         scaffold_study(doc_type, doc_id, doc_title)
     else:
