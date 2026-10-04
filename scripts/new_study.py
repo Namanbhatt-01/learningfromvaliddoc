@@ -68,17 +68,17 @@ def scaffold_study(study_type: str, item_id: str, title: str):
     with open(readme_file, "w", encoding="utf-8") as f:
         f.write(content)
 
-    # 2. Reel Script reel-script.md
-    reel_template_path = REPO_ROOT / "templates" / "REEL_SCRIPT_TEMPLATE.md"
-    with open(reel_template_path, "r", encoding="utf-8") as f:
-        reel_content = f.read()
+    # 2. Short video script (script.md)
+    script_template_path = REPO_ROOT / "templates" / "SCRIPT_TEMPLATE.md"
+    with open(script_template_path, "r", encoding="utf-8") as f:
+        script_content = f.read()
 
-    reel_content = reel_content.replace("[TOPIC NAME]", f"{clean_id}: {title}".strip(": "))
-    reel_content = reel_content.replace("[TOPIC]", title)
+    script_content = script_content.replace("[TOPIC NAME]", f"{clean_id}: {title}".strip(": "))
+    script_content = script_content.replace("[TOPIC]", title)
 
-    script_file = target_dir / "reel-script.md"
+    script_file = target_dir / "script.md"
     with open(script_file, "w", encoding="utf-8") as f:
-        f.write(reel_content)
+        f.write(script_content)
 
     print("\nCreated new study workspace:")
     print(f"  Directory: {target_dir.relative_to(REPO_ROOT)}")

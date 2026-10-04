@@ -1,19 +1,19 @@
 # Learning From Valid Docs
 
-My personal public notes and video scripts breaking down core computer science specifications—IETF RFCs, CVE postmortems, academic papers, and technical standards (IEEE/ISO).
+My personal public notes and experiments studying core computer science specifications—IETF RFCs, CVE postmortems, academic papers, and technical standards (IEEE/ISO).
 
-Most online tutorials water down technical concepts or pass along second-hand explanations. I created this repo to read the original primary sources, test things in a local lab, take clear notes, and record short video breakdowns explaining what actually happens at the protocol/code level.
+Most online tutorials water down technical concepts or pass along second-hand explanations. I created this repo to read the original primary sources, test things in a local lab, take clear notes, and post short companion video breakdowns on Instagram.
 
 ---
 
-## Current Studies & Video Tracker
+## Studies & Tracker
 
-| ID | Topic | Category | Notes | Lab / Code | Reel / Short | Status |
-|---|---|---|---|---|---|---|
-| **RFC 9114** | HTTP/3 over QUIC | Networking (IETF) | [Notes](rfcs/rfc-9114-http3/README.md) | [test_http3.py](rfcs/rfc-9114-http3/lab/test_http3.py) | [Script](rfcs/rfc-9114-http3/reel-script.md) | Ready to shoot |
-| **CVE-2024-3094** | XZ Utils Backdoor (IFUNC hijacking) | Security / CVE | Coming up | - | - | Reading spec |
-| **Vaswani et al. (2017)** | Attention Is All You Need | ML / Papers | Coming up | - | - | Queued |
-| **IEEE 802.11be** | Wi-Fi 7 Multi-Link Operation | Wireless (IEEE) | Coming up | - | - | Queued |
+| Spec / ID | Category | Summary | Notes | Lab / Code | Video |
+|---|---|---|---|---|---|
+| **RFC 9114** | Networking (IETF) | HTTP/3: Replacing TCP with QUIC to fix head-of-line blocking | [Notes](rfcs/rfc-9114-http3/README.md) | [test_http3.py](rfcs/rfc-9114-http3/lab/test_http3.py) | [Script](rfcs/rfc-9114-http3/script.md) · [Instagram](#) |
+| **CVE-2024-3094** | Security / CVE | XZ Utils Backdoor: IFUNC hooking and payload extraction | Coming up | - | Coming up |
+| **Vaswani et al. (2017)** | ML / Papers | Attention Is All You Need | Coming up | - | Coming up |
+| **IEEE 802.11be** | Wireless (IEEE) | Wi-Fi 7 Multi-Link Operation (MLO) | Coming up | - | Coming up |
 
 ---
 
@@ -31,38 +31,27 @@ Most online tutorials water down technical concepts or pass along second-hand ex
     └── new_study.py    # Helper to scaffold folders and templates
 ```
 
-Each topic folder includes:
-- `README.md`: My technical notes, architectural details, packet flows, and personal takeaways.
-- `reel-script.md`: The 60-second video script (hook, visual cues, voiceover, and captions).
-- `lab/`: Code, curl snippets, Wireshark pcaps, or test scripts verifying the spec.
+Each study directory contains:
+- `README.md`: Technical notes, packet flows, edge cases, and personal takeaways.
+- `lab/`: Code, curl snippets, Wireshark captures, or test scripts.
+- `script.md`: A concise 45-60 second talking script and Instagram Reel link.
 - `assets/`: Diagrams, screenshots, and visual references.
 
 ---
 
 ## Adding a New Entry
 
-Use the helper script to create the folders and fill in the base templates:
+To scaffold a new study workspace:
 
 ```bash
-# Interactive:
+# Interactive prompt:
 python3 scripts/new_study.py
 
-# Or with arguments:
+# Or via flags:
 python3 scripts/new_study.py --type rfc --id 8446 --title "TLS 1.3"
 python3 scripts/new_study.py --type cve --id 2021-44228 --title "Log4Shell"
 python3 scripts/new_study.py --type paper --id 2014 --title "Raft Consensus"
 ```
-
----
-
-## Video Format
-
-For each document, I record a 45–60 second vertical video (Reels/Shorts/TikTok/LinkedIn):
-1. **0–3s:** The Hook (common misconception or surprising fact from the spec).
-2. **3–15s:** What problem or limitation triggered the need for this document.
-3. **15–40s:** How it works under the hood (terminal capture, packet trace, or diagram).
-4. **40–50s:** The real-world impact (performance numbers, security implications).
-5. **50–60s:** Call to action pointing to this repo for notes and lab code.
 
 ---
 
