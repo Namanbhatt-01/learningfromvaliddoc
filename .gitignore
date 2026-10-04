@@ -1,0 +1,32 @@
+# System & OS
+.DS_Store
+Thumbs.db
+
+# Environments & Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+
+# Temporary video/audio editing & raw assets
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wav
+*.mp3
+*.prproj
+*.drp
+*.aep
+raw-footage/
+temp/
+*.tmp
+
+# IDEs & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
