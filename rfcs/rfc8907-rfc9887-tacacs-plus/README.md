@@ -41,7 +41,7 @@ Network access architectures generally rely on either TACACS+ or RADIUS (RFC 286
 
 ## The 12-Byte Header Anatomy
 
-Every TACACS+ packet begins with an identical 12-byte fixed binary header (RFC 8907 Section 4.1):
+Every TACACS+ packet begins with an identical 12-byte fixed binary header (RFC 8907 Section 4.1). For a byte-by-byte annotated hex dump of authentication and authorization wire packets, see [PACKET_DESIGN.md](PACKET_DESIGN.md).
 
 ```text
  0                   1                   2                   3
