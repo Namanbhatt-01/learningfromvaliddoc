@@ -130,6 +130,46 @@ To support modern network automation (NETCONF/RESTCONF), RFC 9950 defines the `i
 
 ---
 
+## Practical Wireshark Packet Capture & Dissection Lab
+
+This repository includes a byte-accurate, RFC 8907 compliant packet capture file ([lab/tacacs_rfc8907_session.pcap](file:///Users/namanbhatt/learningfromvaliddoc/rfcs/rfc8907-rfc9887-tacacs-plus/lab/tacacs_rfc8907_session.pcap)) generated via [lab/generate_tacacs_pcap.py](file:///Users/namanbhatt/learningfromvaliddoc/rfcs/rfc8907-rfc9887-tacacs-plus/lab/generate_tacacs_pcap.py).
+
+It models a complete authentication and authorization sequence between a Cisco router (`192.168.10.1`) and a TACACS+ server (`192.168.10.254` on TCP port 49) using shared secret `cisco123`.
+
+### Captured Frame Sequence
+
+| Frame | Protocol | Type | Details |
+|---|---|---|---|
+| **1–3** | TCP | Handshake | Client `49152` connects to Server `49` (SYN, SYN-ACK, ACK) |
+| **4** | TACACS+ | Authen START | Inbound login for user `admin` on port `tty0` |
+| **6** | TACACS+ | Authen REPLY | Status `GETPASS` (`0x02`), Server message: `Password: ` |
+| **8** | TACACS+ | Authen CONTINUE | User enters password: `SecretAdminPass2026` |
+| **10** | TACACS+ | Authen REPLY | Status `PASS` (`0x01`), Authentication successful |
+| **12** | TACACS+ | Author REQUEST | User requests CLI execution: `cmd=show running-config` |
+| **14** | TACACS+ | Author RESPONSE | Status `PASS_ADD` (`0x01`), Command authorized |
+| **16–18** | TCP | Teardown | Graceful connection closure (FIN, ACK) |
+
+### How to Inspect in Wireshark:
+
+1. Open `lab/tacacs_rfc8907_session.pcap` in Wireshark.
+2. Initially, the packet bodies appear as raw obfuscated hex because RFC 8907 masks payloads with MD5 XOR.
+3. Configure Wireshark's native dissector:
+   - Navigate to: **Preferences** -> **Protocols** -> **TACACS+**
+   - Set **TACACS+ Encryption Key** to: `cisco123`
+4. Wireshark automatically re-computes the MD5 keystream and decrypts every frame in the protocol tree, exposing the raw username, password, and requested CLI commands.
+
+### Terminal Verification via tshark:
+
+```bash
+# View summary flow:
+tshark -r lab/tacacs_rfc8907_session.pcap
+
+# Decrypt live and print authorization commands:
+tshark -r lab/tacacs_rfc8907_session.pcap -o tacplus.key:cisco123 -Y "tacplus" -O tacplus
+```
+
+---
+
 ## Device Configuration Examples
 
 ### Cisco IOS-XE (Migrating from Legacy to TLS)

@@ -14,7 +14,7 @@
 - **The Problem:** But until RFC 8907 was published in 2020, it was never an official internet standard. Worse, its encryption was just an MD5 XOR loop. Because the 12-byte header is in plaintext, an attacker on the management network could easily deduce the pad and crack the shared secret.
 - **The Fix:** RFC 9887 completely fixes this. It mandates TLS 1.3 as the minimum transport, moves traffic to a dedicated port 300, and enables mutual certificate authentication.
 - **Bonus:** RFC 9950 standardized a YANG data model so we can automate all of this via NETCONF instead of manual CLI configs.
-- **CTA:** I put together full protocol packet breakdowns, cryptographic math, and configuration examples on GitHub, link in bio.
+- **CTA:** I put together full packet breakdowns, cryptographic math, and a Wireshark PCAP capture in my GitHub repo, link in bio.
 
 ---
 
@@ -32,6 +32,6 @@ RFC 9887 modernizes TACACS+ for zero-trust environments:
 - Enforces mutual certificate authentication (mTLS) instead of weak shared secrets
 - Paired with RFC 9950 for programmatic YANG automation via NETCONF
 
-Full packet anatomy diagrams, cryptographic breakdown, and Cisco configuration snippets are live on my GitHub (link in bio).
+Full packet diagrams, Cisco configs, and a real Wireshark PCAP capture file are live on my GitHub (link in bio).
 
 #networking #cybersecurity #ietf #tacacs #tls13 #cisco #networkengineering #infosec
